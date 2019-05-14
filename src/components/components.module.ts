@@ -5,11 +5,13 @@ import { CommonModule } from '@angular/common';
 import { AnonymousLoginComponent } from './anonymous-login/anonymous-login';
 import { FacebookLoginComponent } from './facebook-login/facebook-login';
 import { UserLogoutComponent } from './user-logout/user-logout';
+import { PostFeedComponent } from './post-feed/post-feed';
 @NgModule({
 	declarations: [
     AnonymousLoginComponent,
     FacebookLoginComponent,
-    UserLogoutComponent
+    UserLogoutComponent,
+    PostFeedComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { UserLogoutComponent } from './user-logout/user-logout';
 	exports: [
     AnonymousLoginComponent,
     FacebookLoginComponent,
-    UserLogoutComponent
+    UserLogoutComponent,
+    PostFeedComponent
   ]
 })
 export class ComponentsModule {}

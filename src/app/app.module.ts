@@ -32,6 +32,7 @@ const firebaseConfig = {
 import { AuthProvider } from '../providers/auth/auth';
 import { LoginPage } from '../pages/login/login';
 import { ComponentsModule } from '../components/components.module';
+import { DatabaseProvider } from '../providers/database/database';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { ComponentsModule } from '../components/components.module';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Firebase,
     Facebook,
-    AuthProvider
+    AuthProvider,
+    DatabaseProvider
   ]
 })
 export class AppModule {}
