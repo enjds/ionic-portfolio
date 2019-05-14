@@ -55,7 +55,7 @@ export class AuthProvider {
   //// FACEBOOK LOGIN ////
 
   async facebookLogin() {
-    if(this.platform.is('cordova')) {
+    if(this.platform.is("cordova")) {
       return await this.nativeFacebookLogin();
     } else {
       return await this.webFacebookLogin();
@@ -93,6 +93,16 @@ export class AuthProvider {
   // Current user as Promise. Useful for one-off operations
   getCurrentUser(): Promise<any> {
     return this.user.pipe(take(1)).toPromise();
+  }
+
+  async logout(): Promise<any> {
+    return this.afAuth.auth.signOut();
+  }
+
+  // Current user as boolean Promise. Used in router guards
+  async isLoggedIn(): Promise<boolean> {
+    const user = await this.getCurrentUser();
+    return !!user;
   }
 }
 
