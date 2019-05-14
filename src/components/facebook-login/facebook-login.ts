@@ -16,8 +16,8 @@ export class FacebookLoginComponent {
   ) {}
 
   async login() {
-    this.auth.facebookLogin();
-    this.navCtrl.setRoot(TabsPage);
+    await this.auth.facebookLogin();
+    await this.navCtrl.setRoot(TabsPage);
   }
 
 }
