@@ -29,4 +29,8 @@ export class PostFeedComponent implements OnInit{
     );
   }
 
+  trackByFn(index, post) {
+    return post.id;
+  }
+
 }

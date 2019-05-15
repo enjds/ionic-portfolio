@@ -43,7 +43,21 @@ export class DatabaseProvider {
   createPost(userId: string, data: Post) {
     const createdAt = firebase.firestore.FieldValue.serverTimestamp();
     const doc = { userId, createdAt, ...data };
-    return this.postsRef.add(data);
+    return this.postsRef.add(doc);
   }
 
+  //// HEARTS ////
+
+  createHeart(userId: string, post: Post) {
+    const hearts = post.hearts || {};
+    hearts[userId] = true;
+    return this.afs.doc(`posts/${post.id}`).update({ hearts });
+  }
+
+  removeHeart(userId: string, post: Post) {
+    const hearts = post.hearts;
+    delete hearts[userId];
+
+    return this.afs.doc(`posts/${post.id}`).update({ hearts });
+  }
 }
